@@ -31,7 +31,7 @@
 ### Installation
 1. **Clone repository:**
    ```bash 
-   git clone https://github.com/your-username/W2Bank.git cd W2Bank 
+   git clone https://github.com/hoangtung2103/tuyensinh.git 
    ``` 
 
 2. **Mở folder `tuyensinh` trong IntelliJ**
