@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "03f1859b-7bb3-44ec-a414-9bcfc7758c69",
+		"name": "tuyensinh",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44662694",
+		"_collection_link": "https://tunghoang-3434495.postman.co/workspace/Tung-Hoang's-Workspace~a434bba4-ae91-4b05-84e6-977134aa9755/collection/44662694-03f1859b-7bb3-44ec-a414-9bcfc7758c69?action=share&source=collection_link&creator=44662694"
+	},
+	"item": [
+		{
+			"name": "admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"admin1\",\r\n    \"password\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/admin/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"admin",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "student login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"citizenId\":\"987654321098\",\r\n    \"password\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/student/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"student",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "student register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"citizenId\":\"987654321098\",\r\n    \"fullName\":\"Test Văn Test\",\r\n    \"password\":\"1\",\r\n    \"email\":\"a@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/student/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"student",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tạo hồ sơ tuyển sinh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"citizenId\": \"987654321098\",\r\n    \"submissionDate\": \"2025-07-14T10:00:00\",\r\n    \"addr\": \"456 Đường Nguyễn Huệ, Quận 1, TP.HCM\",\r\n    \"certificate\": \"TOEIC\",\r\n    \"score\": 990,\r\n    \"additionalInfo\": {\"highSchool\": \"THPT Le Quy Don\", \"priority\": \"Ưu tiên 1\"},\r\n    \"applicationYear\": 2025\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/application/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"application",
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tra cứu hồ sơ ts theo cccd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/application/result?citizenId=987654321098",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"application",
+						"result"
+					],
+					"query": [
+						{
+							"key": "citizenId",
+							"value": "987654321098"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin lấy danh sách tất cả hồ sơ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/application/list?status=approved&applicationYear=2025&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"application",
+						"list"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "approved"
+						},
+						{
+							"key": "applicationYear",
+							"value": "2025"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin lấy chi tiết 1 hồ sơ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/application/detail/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"application",
+						"detail",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin duyệt hoặc từ chối hồ sơ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"approved\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/application/update-status/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"application",
+						"update-status",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
