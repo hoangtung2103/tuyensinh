@@ -18,12 +18,6 @@ import org.hibernate.type.SqlTypes;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Application {
 
-    public enum ApplicationStatus {
-        pending,
-        approved,
-        rejected
-    }
-
     // Getters and Setters
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
