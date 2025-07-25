@@ -1,10 +1,7 @@
 package com.tungth.tuyensinh_be.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,5 +24,9 @@ public class Major {
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "article_id", referencedColumnName = "id")
+    private Article article;
 
 }

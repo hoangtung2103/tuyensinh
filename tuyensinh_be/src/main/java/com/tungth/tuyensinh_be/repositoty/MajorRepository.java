@@ -1,4 +1,8 @@
 package com.tungth.tuyensinh_be.repositoty;
 
-public class MajorRepository {
+import com.tungth.tuyensinh_be.entity.Major;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MajorRepository extends JpaRepository<Major, String> {
+
 }
