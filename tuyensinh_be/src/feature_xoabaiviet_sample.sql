@@ -1,0 +1,20 @@
+-- Thêm dữ liệu mẫu
+INSERT INTO Articles (id, title, coverImage, summary, content, category, subcategory, publishedDate, author) VALUES
+(4,
+    'Chuyên gia dự báo điểm chuẩn chương trình Cử nhân Quan hệ Công chúng – PTIT',
+    'https://example.com/images/cntt.jpg',
+    'Chuyên gia dự báo điểm chuẩn chương trình Cử nhân Quan hệ Công chúng - PTIT',
+    '<p>(SHTT) – Học viện Công nghệ Bưu chính Viễn thông vừa công bố điều chỉnh Đề án tuyển sinh Đại học Chính quy. Theo đó, với 80 chỉ tiêu chương trình đào tạo về Quan hệ Công chúng mới được thông báo tuyển sinh, ngành Marketing của Học viện sẽ tăng từ 240 lên 300 chỉ tiêu.</p>',
+    'tin-tuc',
+    'thong-tin-bao-chi',
+    '2025-07-11',
+    'Nguyen Van A'),
+(5,
+    'Chuyên gia dự báo điểm chuẩn chương trình Cử nhân Quan hệ Công chúng – PTIT',
+    'https://example.com/images/cntt.jpg',
+    'Chương trình đào tạo Quan hệ công chúng tại Học viện Công nghệ Bưu chính Viễn thông có gì khác biệt?',
+    '<p>Quan hệ công chúng (Public Relations – PR) là công việc quản lý các mối quan hệ giao tiếp cộng đồng để xây dựng và gìn giữ hình ảnh tích cực một cơ quan tổ chức hay doanh nghiệp.</p>',
+    'tin-tuc',
+    'thong-tin-bao-chi',
+    '2025-07-26',
+    'Nguyen Van A');

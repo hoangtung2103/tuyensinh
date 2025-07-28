@@ -27,4 +27,21 @@ public class ArticleController {
     public Map<String, Object> getArticleById(@PathVariable Long id) {
         return articleService.getArticleById(id);
     }
+
+    // Lấy danh sách TẤT CẢ các bài viết (cho giao diện admin xóa bài viết)
+        // usage:
+        //GET http://localhost:8081/api/articles/list?page=1&size=12&title=tuyển%20sinh
+        //GET http://localhost:8081/api/articles/list?page=1&size=12
+    @GetMapping("/list")
+    public Map<String, Object> getAllArticles(
+            @RequestParam int page,
+            @RequestParam(defaultValue = "12") int size,
+            @RequestParam(required = false) String title) {
+        return articleService.getAllArticles(page, size, title);
+    }
+
+    @DeleteMapping("/{id}")
+    public Map<String, Object> deleteArticleById(@PathVariable Long id) {
+        return articleService.deleteArticleById(id);
+    }
 }
