@@ -32,13 +32,13 @@
 1. **Clone repository:**
    ```bash 
    git clone https://github.com/hoangtung2103/tuyensinh.git 
-   ``` 
-
+   ```
 
 3. Mở CSDL (MySQL) và chạy lần lượt các file truy vấn
-   - `tuyensinh_db.sql`
+   - `tuyensinh_db.sql` (bắt buộc p chạy truy vấn này)
    - `data_test.sql`
-   - `feature_major_sample.sql`
+   - `feature_major_sample.sql` (bắt buộc p chạy truy vấn này)
+   - `feature_xoabaiviet_sample.sql`
 
 ### Running the Application
 Trong dự án vừa mở ở IntelliJ, Mở folder `tuyensinh` và
