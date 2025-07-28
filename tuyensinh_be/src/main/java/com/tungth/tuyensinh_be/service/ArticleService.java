@@ -1,5 +1,7 @@
 package com.tungth.tuyensinh_be.service;
 
+import com.tungth.tuyensinh_be.dto.ArticleCreateRequest;
+import com.tungth.tuyensinh_be.dto.ArticleResponse;
 import com.tungth.tuyensinh_be.entity.Article;
 import com.tungth.tuyensinh_be.repositoty.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,5 +126,32 @@ public class ArticleService {
             response.put("message", "Article not found");
         }
         return response;
+    }
+
+
+    public ArticleResponse createArticle(ArticleCreateRequest request) {
+        Article article = new Article();
+        article.setTitle(request.getTitle());
+        article.setCoverImage(request.getCoverImage());
+        article.setSummary(request.getSummary());
+        article.setContent(request.getContent());
+        article.setPublishedDate(request.getPublishedDate());
+        article.setAuthor(request.getAuthor());
+        article.setCategory(request.getCategory());
+        article.setSubcategory(request.getSubcategory());
+
+        Article savedArticle = articleRepository.save(article);
+
+        return new ArticleResponse(
+                savedArticle.getId(),
+                savedArticle.getTitle(),
+                savedArticle.getCoverImage(),
+                savedArticle.getSummary(),
+                savedArticle.getContent(),
+                savedArticle.getPublishedDate(),
+                savedArticle.getAuthor(),
+                savedArticle.getCategory(),
+                savedArticle.getSubcategory()
+        );
     }
 }

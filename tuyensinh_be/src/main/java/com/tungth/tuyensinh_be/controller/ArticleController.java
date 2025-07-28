@@ -1,7 +1,11 @@
 package com.tungth.tuyensinh_be.controller;
 
+import com.tungth.tuyensinh_be.dto.ArticleCreateRequest;
+import com.tungth.tuyensinh_be.dto.ArticleResponse;
 import com.tungth.tuyensinh_be.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -11,6 +15,17 @@ import java.util.Map;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
+
+    @PostMapping("/create")
+    public ResponseEntity<?> createArticle(@RequestBody ArticleCreateRequest request) {
+        try {
+            ArticleResponse result = articleService.createArticle(request);
+            return ResponseEntity.ok(result);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(Map.of("error", e.getMessage()));
+        }
+    }
 
     // Lấy danh sách bài viêt theo catergory
     @GetMapping("/{category}/{subcategory}/{page}")
