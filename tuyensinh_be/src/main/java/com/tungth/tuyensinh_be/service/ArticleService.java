@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -47,6 +48,54 @@ public class ArticleService {
         pagination.put("totalItems", articlePage.getTotalElements());
         pagination.put("totalPages", articlePage.getTotalPages());
         response.put("pagination", pagination);
+        return response;
+    }
+
+    // Lấy danh sách TẤT CẢ các bài viết (cho giao diện admin xóa bài viết)
+    public Map<String, Object> getAllArticles(int page, int size, String title) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        Page<Article> articlePage = title != null && !title.isEmpty() ?
+                articleRepository.findByTitleContainingIgnoreCaseOrderByPublishedDateDesc(title, pageable) :
+                articleRepository.findAll(pageable);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        var articleData = articlePage.getContent().stream().map(article -> {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", article.getId());
+            map.put("title", article.getTitle());
+            map.put("summary", article.getSummary());
+            map.put("category", article.getCategory());
+            map.put("subcategory", article.getSubcategory());
+            map.put("publishedDate", article.getPublishedDate().atStartOfDay().format(formatter));
+            map.put("author", article.getAuthor());
+            return map;
+        }).collect(Collectors.toList());
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "success");
+        response.put("data", articleData);
+        Map<String, Object> pagination = new HashMap<>();
+        pagination.put("page", page);
+        pagination.put("size", size);
+        pagination.put("totalItems", articlePage.getTotalElements());
+        pagination.put("totalPages", articlePage.getTotalPages());
+        response.put("pagination", pagination);
+        return response;
+    }
+
+    @Transactional
+    public Map<String, Object> deleteArticleById(Long id) {
+        Map<String, Object> response = new HashMap<>();
+        Optional<Article> articleOptional = articleRepository.findById(id);
+        if (!articleOptional.isPresent()) {
+            response.put("status", "error");
+            response.put("message", "Article not found");
+            return response;
+        }
+
+        articleRepository.deleteById(id);
+        response.put("status", "success");
+        response.put("message", "Article deleted successfully");
         return response;
     }
 
