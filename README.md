@@ -34,17 +34,18 @@
    git clone https://github.com/hoangtung2103/tuyensinh.git 
    ```
 
-3. Mở CSDL (MySQL) và chạy lần lượt các file truy vấn
+### Running the Application
+
+2. Mở CSDL (MySQL) và chạy lần lượt các file truy vấn
    - `tuyensinh_db.sql` (bắt buộc p chạy truy vấn này)
    - `data_test.sql`
    - `feature_major_sample.sql` (bắt buộc p chạy truy vấn này)
    - `feature_xoabaiviet_sample.sql`
 
-### Running the Application
-Trong dự án vừa mở ở IntelliJ, Mở folder `tuyensinh` và
-tìm đến file: `tuyensinh/tuyensinh_be/src/main/resources/application.properties` thay đổi username password theo csdl của b
+3. Trong dự án vừa mở ở IntelliJ, Mở folder `tuyensinh` và
+   - tìm đến file: `tuyensinh/tuyensinh_be/src/main/resources/application.properties` thay đổi username password theo csdl của b
 
-Sau đó, Tìm đến file có đường dẫn: `tuyensinh\tuyensinh_be\src\main\java\com\tungth\tuyensinh_be\TuyensinhBeApplication.java` và chạy nó.
+   - Sau đó, Tìm đến file có đường dẫn: `tuyensinh\tuyensinh_be\src\main\java\com\tungth\tuyensinh_be\TuyensinhBeApplication.java` và chạy nó.
 
 All done!
 ## API Usage
