@@ -76,7 +76,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"citizenId\":\"987654321098\",\r\n    \"fullName\":\"Test Văn Test\",\r\n    \"password\":\"1\",\r\n    \"email\":\"a@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"citizenId\":\"987652909811\",\r\n    \"fullName\":\"Tung Hoang\",\r\n    \"password\":\"1\",\r\n    \"email\":\"aa@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -244,6 +244,197 @@
 						"application",
 						"update-status",
 						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload ảnh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/E:/Images/569565277.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/uploads/image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"uploads",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách ngành",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/majors?page=1&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"majors"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách bài viết",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/articles/tin-tuc/thong-tin-bao-chi/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"articles",
+						"tin-tuc",
+						"thong-tin-bao-chi",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy chi tiết 1 bài viết",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/articles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"articles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin tạo mới bài viết",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Thông báo tuyển sinh 2025\",\r\n    \"coverImage\": \"https://example.com/images/cover.jpg\",\r\n    \"summary\": \"Tóm tắt về kỳ tuyển sinh 2025\",\r\n    \"content\": \"<p>Nội dung chi tiết về kỳ tuyển sinh 2025...</p><h2>Thông tin thêm</h2><ul><li>Điểm xét tuyển: 27</li></ul>\",\r\n    \"publishedDate\": \"2025-07-28\",\r\n    \"author\": \"Admin\",\r\n    \"category\": \"thong-bao\",\r\n    \"subcategory\": \"thong-tin-bao-chi\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/articles/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"articles",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy bài viết theo tên",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/articles/list?page=1&size=12&title=Chuyên%20gia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"articles",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "12"
+						},
+						{
+							"key": "title",
+							"value": "Chuyên%20gia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xoá bài viết",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/articles/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"articles",
+						"5"
 					]
 				}
 			},
